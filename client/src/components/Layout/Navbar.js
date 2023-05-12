@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import React from 'react';
 import SearchBar from '../Forms/SearchBar';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
@@ -38,7 +38,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           <i className='fas fa-id-card' /> <span>Dashboard</span>
         </NavLink>
       </li>
-      <li class='searchBar'>
+      <li className='searchBar'>
         <SearchBar />
       </li>
       <li>
@@ -71,7 +71,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           <i className='fas fa-home' /> <span className='hide-sm'>Home</span>
         </NavLink>
       </li>
-      <li class='searchBar'>
+      <li className='searchBar'>
         <SearchBar />
       </li>
       <li>
@@ -90,7 +90,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           className='Nav_link  rightLink'
           exact={true}
         >
-          <i class='fas fa-user-plus'></i>{' '}
+          <i className='fas fa-user-plus'></i>{' '}
           <span className='hide-sm'>Register</span>
         </NavLink>
       </li>

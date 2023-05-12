@@ -1,4 +1,5 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
+
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
@@ -6,6 +7,7 @@ const Countdown = ({ endDate }) => {
   const [countDownData, setCountDownData] = useState({
     timeleft: 'Loading countdown . .'
   });
+  const [listingOver, setListingOver] = useState(false);
 
   const { timeleft } = countDownData;
 
@@ -20,10 +22,10 @@ const Countdown = ({ endDate }) => {
     const countDownDate = Date.parse(endDate);
     // Get today's date and time
     var now = Date.now();
-
+	// setListingOver if Over
+	setListingOver(countDownDate < now ? true : false);
     // Find the distance between now and the count down date
     var distance = countDownDate - now;
-
     // Time calculations for days, hours, minutes and seconds
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor(
@@ -35,7 +37,7 @@ const Countdown = ({ endDate }) => {
       timeleft: days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's '
     });
   };
-  return <Fragment>{timeleft}</Fragment>;
+	return <Fragment>{!listingOver ? timeleft : 0 }</Fragment>;
 };
 
 Countdown.propTypes = {};

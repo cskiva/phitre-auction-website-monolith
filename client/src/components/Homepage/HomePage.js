@@ -1,13 +1,14 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import { clearListings, getListings } from '../../actions/listing';
+
 import ImageGallery from 'react-image-gallery';
-import { getListings, clearListings } from '../../actions/listing';
-import { connect } from 'react-redux';
 import ListingCard from '../Listing/ListingCard';
 import Spinner from './../Layout/Spinner';
+import { connect } from 'react-redux';
 
 export const HomePage = ({ getListings, clearListings, listings }) => {
   const [imageLoadedCount, setCount] = useState(1);
-  const [imagesLoading, setImagesLoading] = useState(true);
+  const [imagesLoading, setImagesLoading] = useState(false);
   const images = [
     {
       original: 'https://picsum.photos/id/1018/1000/600/'
@@ -44,13 +45,9 @@ export const HomePage = ({ getListings, clearListings, listings }) => {
         style={{ display: imagesLoading ? 'none' : 'block' }}
         className='row'
       >
-        <ImageGallery
-          showThumbnails={false}
-          onImageLoad={handleImageLoad}
-          items={images}
-        />
+		<h1>Welcome to Phi Tre</h1>
+		<h2 className='large-heading'>Items</h2>
         <div className='listing-card-row'>
-          <h2 className='large-heading'>More Items to consider</h2>
           {listings.data.map(listing => (
             <ListingCard id={listing._id} listing={listing} />
           ))}
