@@ -49,7 +49,7 @@ export const HomePage = ({ getListings, clearListings, listings }) => {
 		<h2 className='large-heading'>Items</h2>
         <div className='listing-card-row'>
           {listings.data.map(listing => (
-            <ListingCard id={listing._id} listing={listing} />
+		<ListingCard id={listing._id} listing={listing} key={listing._id} />
           ))}
         </div>
       </div>

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { clearListings, getListings } from '../../actions/listing';
+
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getListings, clearListings } from '../../actions/listing';
 
 const SearchBar = ({ getListings, clearListings }) => {
   const [formData, setFormData] = useState({
@@ -34,6 +35,10 @@ const SearchBar = ({ getListings, clearListings }) => {
     history.push(`/listings${search}`);
     getListings(search);
   };
+
+  useEffect(() =>{ 
+	console.log("hello world")
+  }, [])
 
   return (
     <form onSubmit={e => onSubmit(e)}>
