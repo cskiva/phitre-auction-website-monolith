@@ -84,7 +84,7 @@ const path = require("path")
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
-	app.get('*', (req, res) => {
+	app.get('/', (req, res) => {
 		let filePath = path.resolve(__dirname, 'client/build', 'index.html');
 		res.sendFile(filePath);
 	});
