@@ -62,7 +62,7 @@ const SearchBar = ({ getListings, clearListing, listings }) => {
 			<select onChange={(e) => onChange(e)} name="category" value={category}>
 				<option value="All Categories">All Categories</option>
 				{categoryList.map(category => {
-					return <option value={category}>{category}</option>
+					return <option value={category} key={category}>{category}</option>
 				})}
 			</select>
 			<input
