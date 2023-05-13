@@ -1,7 +1,7 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment, useEffect, useState } from 'react';
+
 import { connect } from 'react-redux';
-import { createListing, getListing } from '../../actions/listing';
+import { createListing } from '../../actions/listing';
 
 const ListingForm = ({
   createListing,

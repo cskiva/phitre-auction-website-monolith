@@ -1,11 +1,11 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { editListing, getListing, clearListing } from '../../actions/listing';
-import { Redirect } from 'react-router-dom';
+import React, { Fragment, useEffect, useState } from 'react';
+import { clearListing, editListing, getListing } from '../../actions/listing';
+
 import { Helmet } from 'react-helmet';
-import Spinner from '../Layout/Spinner';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { Redirect } from 'react-router-dom';
+import Spinner from '../Layout/Spinner';
+import { connect } from 'react-redux';
 
 const EditListingPage = ({
   editListing,

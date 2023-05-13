@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { getBiddingHistory, getWonListings } from '../../actions/listing';
-import ListItem from '../Listings/ListItem';
+import { clearListings, getBiddingHistory, getWonListings } from '../../actions/listing';
+
 import { Link } from 'react-router-dom';
-import { clearListings } from '../../actions/listing';
+import ListItem from '../Listings/ListItem';
 import Spinner from '../Layout/Spinner';
+import { connect } from 'react-redux';
 
 const BiddingHistoryPage = ({
   getBiddingHistory,

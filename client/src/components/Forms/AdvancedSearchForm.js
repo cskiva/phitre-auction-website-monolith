@@ -1,8 +1,9 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { clearListings, getListings } from '../../actions/listing';
+
 import { connect } from 'react-redux';
-import { getListings, clearListings } from '../../actions/listing';
+import { useHistory } from 'react-router-dom';
+
 const queryString = require('query-string');
 
 const AdvancedSearchForm = ({ getListings, clearListings }) => {
@@ -134,7 +135,7 @@ const AdvancedSearchForm = ({ getListings, clearListings }) => {
             </label>
           </div>
         </div>
-        <div className='form-group'>
+        {/* <div className='form-group'>
           <h3 className='small-heading '>Created By</h3>
           <div>
             <input
@@ -145,7 +146,7 @@ const AdvancedSearchForm = ({ getListings, clearListings }) => {
               onChange={e => onChange(e)}
             />
           </div>
-        </div>
+        </div> */}
         <div className='form-group'>
           <h3 className='small-heading '>Price Range</h3>
           <div>
@@ -171,7 +172,8 @@ const AdvancedSearchForm = ({ getListings, clearListings }) => {
             </label>
           </div>
         </div>
-        <div className='form-group'>
+		{/* {Pagination Options} */}
+        {/* <div className='form-group'>
           <h3 className='small-heading '>Items Per Page</h3>
           <div className='form-check'>
             <label className='small-text'>
@@ -213,7 +215,7 @@ const AdvancedSearchForm = ({ getListings, clearListings }) => {
               100 items
             </label>
           </div>
-        </div>
+        </div> */}
         <div className='form-group'>
           <h3 className='small-heading '>Sort By</h3>
           <div className='form-check'>

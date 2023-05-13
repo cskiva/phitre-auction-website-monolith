@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { getUserById, clearUser } from '../../actions/user';
-import { connect } from 'react-redux';
-import { getListings, clearListings } from '../../actions/listing';
+import React, { Fragment, useEffect } from 'react';
+import { clearListings, getListings } from '../../actions/listing';
 import { clearReviews, getReviewsWrittenForUser } from '../../actions/review';
-import { Link } from 'react-router-dom';
-import { Fragment } from 'react';
-import { Helmet } from 'react-helmet';
-import Moment from 'react-moment';
+import { clearUser, getUserById } from '../../actions/user';
+
 import CreateReportModal from '../Report/CreateReportModal';
-import ViewReviewsModal from './ViewReviewsModal';
 import CreateReviewModal from '../Reviews/CreateReviewModal';
+import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import ListingCard from '../Listing/ListingCard';
+import Moment from 'react-moment';
 import Spinner from '../Layout/Spinner';
+import ViewReviewsModal from './ViewReviewsModal';
+import { connect } from 'react-redux';
 
 const ProfilePage = ({
   match,

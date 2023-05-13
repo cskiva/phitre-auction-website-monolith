@@ -1,11 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { addNotification } from '../../actions/notification';
 import {
-  NotificationContainer,
-  NotificationManager
+	NotificationContainer,
+	NotificationManager
 } from 'react-notifications';
+import React, { Component } from 'react';
+
+import { addNotification } from '../../actions/notification';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 class Notification extends Component {
   componentWillReceiveProps(newProps) {

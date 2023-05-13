@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { loadUser } from '../../actions/auth';
-import { connect } from 'react-redux';
-import Login from '../Auth/LoginPage';
-import Register from '../Auth/RegisterPage';
-import ListingsPage from '../Listings/ListingsPage';
-import ListingPage from '../Listing/ListingPage';
-import EditListingPage from '../Listing/EditListingPage';
+
+import BiddingHistoryPage from '../Dashboard/BiddingHistoryPage';
 import CreateListingPage from '../Listing/CreateListingPage';
-import PrivateRoute from '../Routing/PrivateRoute';
-import ProfilePage from '../Profile/ProfilePage';
 import Dashboard from '../Dashboard/Dashboard';
+import EditListingPage from '../Listing/EditListingPage';
 import EditProfilePage from '../Profile/EditProfilePage';
 import HomePage from '../Homepage/HomePage';
-import YourListingsPage from '../Dashboard/YourListingsPage';
-import BiddingHistoryPage from '../Dashboard/BiddingHistoryPage';
-import YourReviewsPage from '../Dashboard/YourReviewsPage';
+import ListingPage from '../Listing/ListingPage';
+import ListingsPage from '../Listings/ListingsPage';
+import Login from '../Auth/LoginPage';
 import PageNotFound from '../Layout/PageNotFound';
+import PrivateRoute from '../Routing/PrivateRoute';
+import ProfilePage from '../Profile/ProfilePage';
+import Register from '../Auth/RegisterPage';
+import YourListingsPage from '../Dashboard/YourListingsPage';
+import YourReviewsPage from '../Dashboard/YourReviewsPage';
+import { connect } from 'react-redux';
+import { loadUser } from '../../actions/auth';
 
 const Routes = ({ loadUser, dispatch }) => {
   useEffect(() => {

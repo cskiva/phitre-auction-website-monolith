@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import React from 'react';
 import SearchBar from '../Forms/SearchBar';
 import { connect } from 'react-redux';

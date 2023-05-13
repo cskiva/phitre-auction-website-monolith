@@ -1,9 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createReport } from '../../actions/report';
+import React, { Fragment, useEffect, useState } from 'react';
+
 import ReCAPTCHA from 'react-google-recaptcha';
 import ReactModal from 'react-modal';
+import { connect } from 'react-redux';
+import { createReport } from '../../actions/report';
 
 const CreateReportModal = ({ type, createReport, id }) => {
   const [formData, setFormData] = useState({
@@ -16,8 +16,6 @@ const CreateReportModal = ({ type, createReport, id }) => {
   });
 
   const [verified, setVerified] = useState(false);
-
-  const [captchaLoading, setCaptchaLoading] = useState(true);
 
   const { reportedRef, reason } = formData;
 
@@ -32,7 +30,7 @@ const CreateReportModal = ({ type, createReport, id }) => {
   };
 
   const onloadCallback = () => {
-    setCaptchaLoading(false);
+    // setCaptchaLoading(false);
     console.log('loaded');
   };
   var callback = function() {
