@@ -75,20 +75,19 @@ app.use('/api/report', require('./routes/api/reportRouter'));
 //   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 // });
 
-app.use(globalErrorHandler);
+// app.use(globalErrorHandler);
 
-const PORT = process.env.PORT || 5000;
-
-	// ... other imports 
+// ... other imports 
 const path = require("path")
 
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('/client/build'));
-	app.get('/', (req, res) => {
-		let filePath = path.resolve(__dirname, '/client/build', 'index.html');
-		res.sendFile(filePath);
-	});
-}
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 if (process.env.NODE_ENV !== 'test') {
   server.listen(PORT, () => console.log(`Server started on port ${PORT}`));
