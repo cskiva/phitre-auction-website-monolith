@@ -1,9 +1,10 @@
-import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { register } from '../../actions/auth';
+import React, { Fragment, useState } from 'react';
+
 import { Helmet } from 'react-helmet';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { connect } from 'react-redux';
+import { register } from '../../actions/auth';
 
 const Register = ({ register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -95,9 +96,13 @@ const Register = ({ register, isAuthenticated }) => {
           <div className='form-group'>
             <h4 className='medium-heading'>Captcha</h4>
             <div className='recaptcha-container'>
-              <ReCAPTCHA
-                sitekey='6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0'
-                onChange={verifyCallback}
+						  <ReCAPTCHA
+							  sitekey={
+								  process.env.NODE_ENV === "production"
+									  ? "6LcudAYmAAAAAP_klxNcns939vGCSO9McGDVW1lT"
+									  : "6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0"
+							  }
+							  onChange={verifyCallback}
               />
             </div>
           </div>

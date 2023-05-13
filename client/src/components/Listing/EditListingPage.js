@@ -155,9 +155,12 @@ const EditListingPage = ({
           <div className='form-group'>
             <h4 className='medium-heading'>Captcha</h4>
             <div className='recaptcha-container'>
-              <ReCAPTCHA
-                sitekey='6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0'
-                onChange={verifyCallback}
+								  <ReCAPTCHA
+									  sitekey={
+										  process.env.NODE_ENV === "production"
+											  ? "6LcudAYmAAAAAP_klxNcns939vGCSO9McGDVW1lT"
+											  : "6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0"
+									  }
               />
             </div>
           </div>

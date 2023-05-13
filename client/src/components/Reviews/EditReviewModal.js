@@ -1,10 +1,11 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { editReview, clearReview, getReview } from '../../actions/review';
-import { connect } from 'react-redux';
-import ReactModal from 'react-modal';
-import ReCAPTCHA from 'react-google-recaptcha';
-import Spinner from '../Layout/Spinner';
+import React, { Fragment, useEffect, useState } from 'react';
+import { clearReview, editReview, getReview } from '../../actions/review';
+
 import PropTypes from 'prop-types';
+import ReCAPTCHA from 'react-google-recaptcha';
+import ReactModal from 'react-modal';
+import Spinner from '../Layout/Spinner';
+import { connect } from 'react-redux';
 
 const EditReviewModal = ({
   getReview,
@@ -136,8 +137,12 @@ const EditReviewModal = ({
             <div className='form-group'>
               <h2 className='medium-heading'>Captcha</h2>
               <div className='recaptcha-container'>
-                <ReCAPTCHA
-                  sitekey='6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0'
+								  <ReCAPTCHA
+									  sitekey={
+										  process.env.NODE_ENV === "production"
+											  ? "6LcudAYmAAAAAP_klxNcns939vGCSO9McGDVW1lT"
+											  : "6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0"
+									  }
                   onChange={verifyCallback}
                 />
               </div>

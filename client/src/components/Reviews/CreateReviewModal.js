@@ -1,9 +1,10 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { createReview } from '../../actions/review';
-import { connect } from 'react-redux';
-import ReactModal from 'react-modal';
-import ReCAPTCHA from 'react-google-recaptcha';
+import React, { Fragment, useEffect, useState } from 'react';
+
 import PropTypes from 'prop-types';
+import ReCAPTCHA from 'react-google-recaptcha';
+import ReactModal from 'react-modal';
+import { connect } from 'react-redux';
+import { createReview } from '../../actions/review';
 
 const ReportForm = ({ type, createReview, id }) => {
   const [formData, setFormData] = useState({
@@ -106,8 +107,12 @@ const ReportForm = ({ type, createReview, id }) => {
           <div className='form-group'>
             <h2 className='medium-heading'>Captcha</h2>
             <div className='recaptcha-container'>
-              <ReCAPTCHA
-                sitekey='6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0'
+						  <ReCAPTCHA
+							  sitekey={
+								  process.env.NODE_ENV === "production"
+									  ? "6LcudAYmAAAAAP_klxNcns939vGCSO9McGDVW1lT"
+									  : "6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0"
+							  }
                 onChange={verifyCallback}
               />
             </div>
