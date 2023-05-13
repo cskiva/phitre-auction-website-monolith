@@ -71,9 +71,9 @@ app.use('/api/auth', require('./routes/api/authRouter'));
 app.use('/api/review', require('./routes/api/reviewRouter'));
 app.use('/api/report', require('./routes/api/reportRouter'));
 
-app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
-});
+// app.all('*', (req, res, next) => {
+//   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+// });
 
 app.use(globalErrorHandler);
 
