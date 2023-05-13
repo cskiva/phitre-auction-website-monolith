@@ -9,7 +9,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const AppError = require('./utils/appError');
 
-const dotenv = require('dotenv').config({ path: './.env' });
+const dotenv = require('dotenv').config();
 
 // Connect Database
 connectDB();
