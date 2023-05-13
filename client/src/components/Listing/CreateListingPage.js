@@ -203,7 +203,7 @@ const CreateListingPage = ({ createListing, history, isAuthenticated }) => {
               <ReCAPTCHA
                 sitekey={
                   process.env.NODE_ENV === "production"
-                    ? "6LcudAYmAAAAAP_klxNcns939vGCSO9McGDVW1lT"
+                    ? "6LeT8QYmAAAAAOtGJZAwoQMfFzLltdt3KbUMlKYp"
                     : "6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0"
                 }
                 onChange={verifyCallback}
