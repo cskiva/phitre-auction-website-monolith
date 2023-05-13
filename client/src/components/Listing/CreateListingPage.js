@@ -5,7 +5,6 @@ import React, { Fragment, useState } from "react";
 import DatePicker from "react-datepicker";
 import { Helmet } from "react-helmet";
 import ImageUploader from "react-images-upload";
-import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 import { connect } from "react-redux";
 import { createListing } from "../../actions/listing";
@@ -28,8 +27,6 @@ const CreateListingPage = ({ createListing, history, isAuthenticated }) => {
 
   const [endDate, setEndDate] = useState(new Date());
 
-  const [verified, setVerified] = useState(false);
-
   const [uploading, setUploading] = useState(false);
 
   const onDrop = (picture) => {
@@ -42,7 +39,6 @@ const CreateListingPage = ({ createListing, history, isAuthenticated }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     setUploading(true);
-    if (verified) {
       let img;
       if (pictures[0]) {
         let formData = new FormData();
@@ -61,14 +57,7 @@ const CreateListingPage = ({ createListing, history, isAuthenticated }) => {
         img,
         history
       );
-    } else {
-      alert("Do the CAPTCHA");
-    }
     setUploading(false);
-  };
-
-  const verifyCallback = (e) => {
-    setVerified(true);
   };
 
   return (
@@ -196,19 +185,6 @@ const CreateListingPage = ({ createListing, history, isAuthenticated }) => {
               dateFormat="MMMM d, yyyy"
               required
             />
-          </div>
-          <div className="form-group">
-            <h4 className="medium-heading">Captcha</h4>
-            <div className="recaptcha-container">
-              <ReCAPTCHA
-                sitekey={
-                  process.env.NODE_ENV === "production"
-                    ? "6LeT8QYmAAAAAOtGJZAwoQMfFzLltdt3KbUMlKYp"
-                    : "6Lcck9cUAAAAAIuHfUVETNVzklfJ6QkJ69V5tor0"
-                }
-                onChange={verifyCallback}
-              />
-            </div>
           </div>
           <input
             type="submit"
