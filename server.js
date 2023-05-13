@@ -79,15 +79,12 @@ app.use(globalErrorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV !== 'development') {
 	// ... other imports 
 const path = require("path")
 
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
 // ... other app.use middleware 
 app.use(express.static(path.join(__dirname, "client", "build")))
-
-// ...
-// Right before your app.listen(), add this:
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });

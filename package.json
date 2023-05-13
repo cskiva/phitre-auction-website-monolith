@@ -12,7 +12,7 @@
     "server": "nodemon server",
     "client": "npm start --prefix client",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "jest": {
     "testEnvironment": "node",
